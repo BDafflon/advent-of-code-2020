@@ -9,7 +9,8 @@ for i, x in enumerate(numbers):
             print("Part 1:")
             print(x * y)
             print("-" * 10)
-        for z in numbers[i + j + 1 :]:
-            if x + y + z == 2020:
-                print("Part 2:")
-                print(x * y * z)
+        if x + y < 2020:
+            for z in numbers[i + j + 1 :]:
+                if x + y + z == 2020:
+                    print("Part 2:")
+                    print(x * y * z)
