@@ -6,7 +6,8 @@ for line in open("02.in").readlines():
     pw = arr[-1]
     req = arr[1][0]
     x, y = pw[lower - 1], pw[upper - 1]
-    if pw.count(req) >= lower and pw.count(req) <= upper:
+    occurrences = pw.count(req)
+    if occurrences >= lower and occurrences <= upper:
         part1 += 1
     if (x == req) ^ (y == req):
         part2 += 1
