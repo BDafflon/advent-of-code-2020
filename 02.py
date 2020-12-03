@@ -9,7 +9,7 @@ for line in open("02.in").readlines():
     occurrences = pw.count(req)
     if lower <= occurrences <= upper:
         part1 += 1
-    if (x == req) ^ (y == req):
+    if (x == req) != (y == req):
         part2 += 1
 print("Part 1:", part1)
 print("Part 2:", part2)
