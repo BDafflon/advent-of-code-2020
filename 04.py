@@ -1,3 +1,5 @@
+import re
+
 passports = []
 current = ""
 with open("04.in") as f:
@@ -36,7 +38,7 @@ def valid_passport(p, part2=False):
         if not (59 <= int(hgt[:-2]) <= 76):
             return False
     hcl = p["hcl"]
-    if not hcl[0] == "#" or not hcl[1:].isalnum():
+    if not hcl[0] == "#" or not re.match(r'[0-9a-f]{6}', hcl[1:]):
         return False
     if p["ecl"] not in ("amb", "blu", "brn", "gry", "grn", "hzl", "oth"):
         return False
