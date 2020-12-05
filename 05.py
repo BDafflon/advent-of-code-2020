@@ -1,12 +1,12 @@
 with open("05.in") as f:
     lines = [x.strip() for x in f.readlines()]
 
-ids = []
+ids = set()
 for line in lines:
     binary = ""
     for c in line:
         binary += "1" if c in "BR" else "0"
-    ids.append(int(binary, 2))
+    ids.add(int(binary, 2))
 print("Part 1:", max(ids))
 
 for x in ids:
