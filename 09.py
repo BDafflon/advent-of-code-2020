@@ -24,17 +24,15 @@ for i in lines[preamble_length:]:
     preamble.popleft()
     preamble.append(i)
 
-summation_set = set()
-for i, x in enumerate(lines):
-    summed = x
-    summation_set = set([x])
-    j = i + 1
-    while summed < invalid:
-        summed += lines[j]
-        summation_set.add(lines[j])
-        j += 1
-    if summed == invalid:
+summation_queue = deque([])
+summation = 0
+for x in lines:
+    while summation > invalid:
+        summation -= summation_queue.popleft()
+    if summation == invalid:
         break
+    summation_queue.append(x)
+    summation += x
 
 print("Part 1:", invalid)
-print("Part 2:", max(summation_set) + min(summation_set))
+print("Part 2:", max(summation_queue) + min(summation_queue))
