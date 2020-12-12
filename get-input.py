@@ -15,6 +15,7 @@ puzzle_response = requests.get(
 )
 puzzle = puzzle_response.text.rstrip()
 
-filename = "" if day > 9 else "0" + str(day) + ".in"
+zeropad = "" if day > 9 else "0"
+filename = zeropad + str(day) + ".in"
 with open(filename, "w") as f:
     f.write(puzzle)
